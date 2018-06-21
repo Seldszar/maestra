@@ -1,0 +1,65 @@
+{
+  "name": "maestra",
+  "version": "0.0.0-development",
+  "description": "Get ready for an encore with this reprise to Octavia's concerto of mayhem.",
+  "author": "Alexandre Breteau <contact@seldszar.fr>",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "homepage": "https://github.com/seldszar/maestra#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/seldszar/maestra.git"
+  },
+  "bugs": {
+    "url": "https://github.com/seldszar/maestra/issues"
+  },
+  "files": [
+    "lib",
+    "LICENSE",
+    "README.md"
+  ],
+  "keywords": [
+    "dependencies",
+    "runner",
+    "sequencer",
+    "task"
+  ],
+  "engine": {
+    "node": ">=8.0.0"
+  },
+  "scripts": {
+    "doc": "documentation build lib/index.js --format=md --output=API.md",
+    "lint": "eslint --format codeframe **/*.js",
+    "lint-staged": "lint-staged",
+    "semantic-release": "semantic-release",
+    "test": "jest"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^7.0.0",
+    "@commitlint/config-conventional": "^7.0.1",
+    "babel-eslint": "^8.2.3",
+    "documentation": "^8.0.0",
+    "eslint": "^4.19.1",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-prettier": "^2.6.0",
+    "husky": "^1.0.0-rc.8",
+    "jest": "^23.0.0",
+    "lint-staged": "^7.0.5",
+    "prettier": "^1.12.1",
+    "semantic-release": "^15.1.8"
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "npm run lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": "eslint --format codeframe"
+  }
+}
